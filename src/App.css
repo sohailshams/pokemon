@@ -1,0 +1,28 @@
+.pokemonContainer{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+    list-style: none;
+    text-align: center;
+    
+
+}
+
+.pokemon{
+    border: rgb(54, 54, 54) solid 1px;
+    border-radius: 5px;
+    padding: 5px;
+    width: 140px;
+    height: 180px;
+    margin: 5px;
+    cursor: pointer;
+}
+.pokemon:hover{
+    transition: all .4s ease-in-out;
+    transform: scale(1.1);
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
