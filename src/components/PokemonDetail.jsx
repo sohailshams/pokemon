@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import getPokemon from "../api/api";
 import { Link, useParams } from "react-router-dom";
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
+import { PokemonChart } from "./PokemonChart";
 
 function PokemonDetail({}) {
   const [pokemonDetail, setPokemonDetail] = useState("");
@@ -26,24 +24,27 @@ function PokemonDetail({}) {
     <div className="detailContainer">
       <div className="pokemonDetail">
         <h1>Name</h1>
-        <p>{name}</p>
+        <p>{name.charAt(0).toUpperCase() + name.slice(1)}</p>
         <img src={pokemonDetail?.sprites?.front_default} alt="No image" />
-        <h3>Abilities</h3>
+        <h1>Abilities</h1>
         <ul>
           {pokemonDetail?.abilities?.map((ability) => (
-            <li key={ability.ability.name}>{ability.ability.name}</li>
+            <li key={ability.ability.name}>
+              {ability.ability.name.charAt(0).toUpperCase() +
+                ability.ability.name.slice(1)}
+            </li>
           ))}
         </ul>
-        <h3>Height</h3>
-        <p>{pokemonDetail?.height}</p>
-        <h3>Weight</h3>
-        <p>{pokemonDetail?.weight} kg</p>
         <Link to="/">
           <button className="closeButton">Close </button>
         </Link>
       </div>
       <div className="pokemonDetail">
-        <p>chart</p>
+        <PokemonChart
+          baseExperience={pokemonDetail?.base_experience}
+          weight={pokemonDetail?.weight}
+          height={pokemonDetail?.height}
+        />
       </div>
     </div>
   );

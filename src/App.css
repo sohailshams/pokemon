@@ -58,9 +58,6 @@
 
 body {
   background-image: url("./assets/images/bg-detail.png");
-  height: 100vh;
-  /* minwidth: 100vw; */
-  /* background-repeat: no-repeat; */
   object-fit: cover;
   list-style: none;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -79,7 +76,9 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: space-around;
+  justify-content: center;
+  row-gap: 10px;
+  font-weight: bold;
 }
 
 .pokemonDetail > img {
@@ -90,6 +89,10 @@ body {
 .closeButton {
   padding: 5px 10px;
   cursor: pointer;
+}
+
+.pokemonDetail > ul > li {
+  padding: 10px;
 }
 
 li {
