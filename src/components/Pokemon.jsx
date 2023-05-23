@@ -19,17 +19,15 @@ function Pokemon({ name, url, baseUrl }) {
 
   const pokemonDetailHandler = () => {
     setPokemonName("");
-    const overlay = document.getElementById("pokemonDetail");
-    overlay.style.display = "block";
+    // const overlay = document.getElementById("pokemonDetail");
+    // overlay.style.display = "block";
+    console.log("inside pokemon component", name);
     setPokemonName(name);
+    console.log("updated name", pokemonName);
   };
+
   return (
     <div>
-      <PokemonDetail
-        pokemonName={pokemonName}
-        baseUrl={baseUrl}
-        pokemonImage={pokemonImage}
-      />
       <div onClick={pokemonDetailHandler} className="pokemon">
         <h3 className="pokemonName">
           {name.charAt(0).toUpperCase() + name.slice(1)}

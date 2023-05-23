@@ -4,6 +4,7 @@ import Pokemon from "./Pokemon";
 import getPokemon from "../api/api";
 import SearchPokemon from "./SearchPokemon";
 import PokemonDetail from "./PokemonDetail";
+import { Link } from "react-router-dom";
 
 export default function ShowPokemon() {
   const [pokemon, setPokemon] = useState([]);
@@ -30,14 +31,16 @@ export default function ShowPokemon() {
 
   return (
     <div>
-      {/* <PokemonDetail /> */}
+      <PokemonDetail pokemonName={"something"} is/>
       <SearchPokemon search={search} setSearch={setSearch} />
       <ul className="pokemonContainer">
         {filteredPokemon.map((pokemon) => {
           const { name, url } = pokemon;
           return (
             <li>
-              <Pokemon name={name} url={url} baseUrl={baseUrl} />
+              <Link to="/detail">
+                <Pokemon name={name} url={url} baseUrl={baseUrl} />
+              </Link>
             </li>
           );
         })}
