@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<ShowPokemon />} />
-      <Route path="/detail" element={<PokemonDetail />} />
+      <Route path="/detail/:name" element={<PokemonDetail />} />
     </Routes>
   );
 }

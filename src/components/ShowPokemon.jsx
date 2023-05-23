@@ -31,14 +31,14 @@ export default function ShowPokemon() {
 
   return (
     <div>
-      <PokemonDetail pokemonName={"something"} is/>
+      {/* <PokemonDetail /> */}
       <SearchPokemon search={search} setSearch={setSearch} />
       <ul className="pokemonContainer">
         {filteredPokemon.map((pokemon) => {
           const { name, url } = pokemon;
           return (
             <li>
-              <Link to="/detail">
+              <Link to={`/detail/${name}`}>
                 <Pokemon name={name} url={url} baseUrl={baseUrl} />
               </Link>
             </li>
