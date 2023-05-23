@@ -27,8 +27,7 @@ function Pokemon({ name, url, baseUrl }) {
   };
 
   return (
-    <div >
-      <PokemonDetail pokemonName={pokemonName} baseUrl={baseUrl} pokemonImage={pokemonImage}/>
+    <div>
       <div onClick={pokemonDetailHandler} className="pokemon">
         <h3 className="pokemonName">
           {name.charAt(0).toUpperCase() + name.slice(1)}
