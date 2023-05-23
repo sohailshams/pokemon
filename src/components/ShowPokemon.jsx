@@ -3,7 +3,6 @@ import { useState } from "react";
 import Pokemon from "./Pokemon";
 import getPokemon from "../api/api";
 import SearchPokemon from "./SearchPokemon";
-import PokemonDetail from "./PokemonDetail";
 import { Link } from "react-router-dom";
 
 export default function ShowPokemon() {
@@ -37,9 +36,9 @@ export default function ShowPokemon() {
         {filteredPokemon.map((pokemon) => {
           const { name, url } = pokemon;
           return (
-            <li>
+            <li key={name}>
               <Link to={`/detail/${name}`}>
-                <Pokemon name={name} url={url} baseUrl={baseUrl} />
+                <Pokemon name={name} url={url}/>
               </Link>
             </li>
           );

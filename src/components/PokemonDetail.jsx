@@ -3,29 +3,18 @@ import getPokemon from "../api/api";
 import { Link, useParams } from "react-router-dom";
 
 function PokemonDetail({}) {
-  // console.log("detail comp", pokemonName);
-  // const [nameOfPokemon, setNameOfPokemon] = useState("");
   const [pokemonDetail, setPokemonDetail] = useState("");
-  const [pokemonImg, setPokemonImg] = useState("");
   const { name } = useParams();
-  const baseUrl = `https://pokeapi.co/api/v2/pokemon`;
 
-  console.log("pokemonDetail", pokemonDetail);
-  // console.log("outside useEffect", nameOfPokemon);
   useEffect(() => {
     if (name) {
-      console.log("name", name);
-      // console.log("inside useEffect", pokemonName);
       getPokemon(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then((response) => {
-          // console.log(response);
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           setPokemonDetail(data);
         });
-      // setNameOfPokemon(pokemonName);
     }
   }, [name]);
 
