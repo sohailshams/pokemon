@@ -5,8 +5,8 @@ export default function SearchPokemon({search, setSearch}) {
 
 
   return (
-    <form>
-        <label for="searchBar" name="searchBar">
+    <form className='searchForm'>
+        <label htmlFor="searchBar" name="searchBar">
             <input onChange={(event) => {setSearch(event.target.value.toLocaleLowerCase())}} id="searchBar" type="text" placeholder='Filter pokemon'></input>
         </label>
 

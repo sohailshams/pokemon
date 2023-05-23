@@ -1,22 +1,43 @@
-import React, { useEffect } from 'react'
-import getPokemon from '../api/api';
-import { useState } from 'react';
+import React, { useEffect } from "react";
+import getPokemon from "../api/api";
+import { useState } from "react";
+import PokemonDetail from "./PokemonDetail";
 
-export default function Pokemon({name, url}) {
-    const [pokemonImage, setPokemonImage] = useState('');
-    // console.log(url);
-    useEffect(() => {
+function Pokemon({ name, url, baseUrl }) {
+  const [pokemonImage, setPokemonImage] = useState("");
+  const [pokemonName, setPokemonName] = useState("");
 
-        getPokemon(url).then((response) => {
-            return response.json();
-            }).then((data) => {
-                setPokemonImage(data.sprites.back_default)
-            })
-    },[])
+  useEffect(() => {
+    getPokemon(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setPokemonImage(data.sprites.front_default);
+      });
+  }, []);
+
+  const pokemonDetailHandler = () => {
+    setPokemonName("");
+    const overlay = document.getElementById("pokemonDetail");
+    overlay.style.display = "block";
+    setPokemonName(name);
+  };
   return (
-    <section className = "pokemon">
-        <h3>{name}</h3>
-        <img src={pokemonImage}></img>
-    </section>
-  )
+    <div>
+      <PokemonDetail
+        pokemonName={pokemonName}
+        baseUrl={baseUrl}
+        pokemonImage={pokemonImage}
+      />
+      <div onClick={pokemonDetailHandler} className="pokemon">
+        <h3 className="pokemonName">
+          {name.charAt(0).toUpperCase() + name.slice(1)}
+        </h3>
+        <img className="pokemonImage" src={pokemonImage}></img>
+      </div>
+    </div>
+  );
 }
+
+export default Pokemon;
