@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import getPokemon from "../api/api";
 import { Link, useParams } from "react-router-dom";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
 
 function PokemonDetail({}) {
   const [pokemonDetail, setPokemonDetail] = useState("");
   const { name } = useParams();
+  console.log(pokemonDetail);
 
   useEffect(() => {
     if (name) {
