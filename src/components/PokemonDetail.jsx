@@ -6,7 +6,6 @@ import { PokemonChart } from "./PokemonChart";
 function PokemonDetail({}) {
   const [pokemonDetail, setPokemonDetail] = useState("");
   const { name } = useParams();
-  console.log(pokemonDetail);
 
   useEffect(() => {
     if (name) {
